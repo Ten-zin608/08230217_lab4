@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Journey - About Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/styles.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <div class="logo">My Journey</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="active">About Me</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="about-section">
+        <div class="about-card">
+            <img src="{% static 'images/profile.jpg' %}" alt="Profile" class="profile-pic">
+            <div class="about-text">
+                <h1>About Me</h1>
+                <p>
+                    Hi! I'm a student learning Django, Python, and web development.
+                    I enjoy solving problems, fixing errors, and building small projects.
+                </p>
+                <p>Right now, I'm focusing on:</p>
+                <ul>
+                    <li>Using models and queries to manage data</li>
+                    <li>Designing templates with static CSS and JS</li>
+                    <li>Understanding Django views and URL routing</li>
+                </ul>
+                <p>
+                    This site is part of my lab work where I connect the database (models),
+                    logic (views), templates, and static assets.
+                </p>
+                <a href="{% url 'index' %}" class="primary-btn">Back to Home</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2025 My Journey. All rights reserved.</p>
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

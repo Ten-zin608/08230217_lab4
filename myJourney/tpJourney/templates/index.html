@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Journey - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/styles.css' %}">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="logo">My Journey</div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                <li><a href="{% url 'about' %}">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Learning Journey</h1>
+                <p>
+                    This page shows all my learning journey entries from the database,
+                    ordered from newest to oldest.
+                </p>
+                <button id="hero-btn" class="primary-btn">
+                    Show a Random Motivation
+                </button>
+                <p id="motivation-text" class="motivation-text"></p>
+            </div>
+        </section>
+
+        <section class="cards-section">
+            <h2>My Learning Journeys</h2>
+
+            {% if journeys %}
+            <div class="card-grid">
+                {% for journey in journeys %}
+                <article class="card">
+                    <h3>{{ journey.title }}</h3>
+                    <p class="date">
+                        {{ journey.date|date:"F j, Y" }}
+                    </p>
+                    <p>
+                        {{ journey.description }}
+                    </p>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No learning journeys yet. Add some entries in the admin site.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 My Journey. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
